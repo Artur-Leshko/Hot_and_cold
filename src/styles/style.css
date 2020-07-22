@@ -1,43 +1,11 @@
 @import "~normalize.css"; /*npm install normalize.css*/
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('../../fonts/Roboto-Regular.eot');
-	src: local('☺'), url('../../fonts/Roboto-Regular.woff') format('woff'), url('../../fonts/Roboto-Regular.ttf') format('truetype'), url('../../fonts/Roboto-Regular.svg') format('svg');
+	font-family: 'Prosto-One';
+	src: url('../../fonts/ProstoOne-Regular.eot');
+	src: local('☺'), url('../../fonts/ProstoOne-Regular.woff') format('woff'), url('../../fonts/ProstoOne-Regular.ttf') format('truetype'), url('../../fonts/ProstoOne-Regular.svg') format('svg');
 	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('../../fonts/Roboto-Italic.eot');
-	src: local('☺'), url('../../fonts/Roboto-Italic.woff') format('woff'), url('../../fonts/Roboto-Italic.ttf') format('truetype'), url('../../fonts/Roboto-Italic.svg') format('svg');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('../../fonts/Roboto-Light.eot');
-	src: local('☺'), url('../../fonts/Roboto-Light.woff') format('woff'), url('../../fonts/Roboto-Light.ttf') format('truetype'), url('../../fonts/Roboto-Light.svg') format('svg');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('../../fonts/Roboto-Medium.eot');
-	src: local('☺'), url('../../fonts/Roboto-Medium.woff') format('woff'), url('../../fonts/Roboto-Medium.ttf') format('truetype'), url('../../fonts/Roboto-Medium.svg') format('svg');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('../../fonts/Roboto-Bold.eot');
-	src: local('☺'), url('../../fonts/Roboto-Bold.woff') format('woff'), url('../../fonts/Roboto-Bold.ttf') format('truetype'), url('../../fonts/Roboto-Bold.svg') format('svg');
-	font-weight: 700;
-	font-style: normal;
+	font-style: cursive;
 }
 
 * {
@@ -47,5 +15,40 @@
 }
 
 body {
-    background-color: blue;
+	font-family: 'Prosto-One', cursive;
+	background: beige;
+	position: relative;
+}
+
+.letter {
+	font-size: 3em;
+	text-transform: uppercase;
+	position: absolute;
+	transition: linear 0.2s;
+	-moz-user-select: none; /* Mozilla Firefox */
+	-webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
+}
+
+.first-image {
+	color: hsl(50, 75%, 55%);
+	text-shadow: 1px 1px hsl(50, 75%, 45%), 2px 2px hsl(50, 45%, 45%), 3px 3px hsl(50, 45%, 45%), 4px 4px hsl(50, 75%, 45%);
+}
+
+.second-image {
+	color: hsl(135, 35%, 55%);
+	text-shadow: 1px 1px hsl(135, 35%, 45%), 2px 2px hsl(135, 35%, 45%), 3px 3px hsl(135, 35%, 45%), 4px 4px hsl(135, 35%, 45%);
+}
+
+.third-image {
+	color: hsl(155, 35%, 60%);
+	text-shadow: 1px 1px hsl(155, 25%, 50%), 2px 2px hsl(155, 25%, 50%), 3px 3px hsl(155, 25%, 50%), 4px 4px hsl(140, 25%, 50%);
+}
+
+.fourth-image {
+	color: hsl(30, 65%, 60%);
+	text-shadow: 1px 1px hsl(30, 45%, 50%), 2px 2px hsl(30, 45%, 50%), 3px 3px hsl(30, 45%, 50%), 4px 4px hsl(30, 45%, 50%);
+}
+
+.first-image:hover, .third-image:hover, .second-image:hover, .fourth-image:hover {
+	transform: scale(2);
 }
