@@ -2,7 +2,6 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssWebpackPlugin = require('mini-css-extract-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 //'start': npm install -D webpack webpack-cli
@@ -25,7 +24,7 @@ module.exports = {
         }
     },
     devServer: {  //npm install -D webpack-dev-server
-        port: 4200
+        port: 4100
     },
     plugins: [
         new HTMLWebpackPlugin({     //npm install -D html-webpack-plugin
@@ -51,12 +50,11 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader']  //npm install -D style-loader css-loader
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']  //npm install -D file-loader
-            },
-            {
-                test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                test: /\.(png|jpg|svg|gif|ttf|woff|woff2|eot)$/,
+                loader: 'file-loader',  //npm install -D file-loader
+                options: {
+                    outputPath: 'fonts and images'
+                }
             }
         ]
     }

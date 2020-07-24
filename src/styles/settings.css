@@ -1,0 +1,22 @@
+.settings {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+}
+
+.settings__icon {
+    color: #fff;
+    font-size: 25px;
+
+    margin-left: 10px;
+    padding: 6px;
+
+    background-color: rgba(242, 124, 85, 0.5);
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.settings__volume-off {
+    display: none;
+}
