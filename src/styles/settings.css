@@ -2,6 +2,9 @@
     position: absolute;
     top: 1%;
     right: 1%;
+
+    -moz-user-select: none; /* Mozilla Firefox */
+	-webkit-user-select: none; /* Google Chrome, Opera Next, Safari */
 }
 
 .settings__icon {
