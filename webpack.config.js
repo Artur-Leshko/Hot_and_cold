@@ -36,6 +36,10 @@ module.exports = {
                 {
                     from: path.resolve(__dirname, 'src/images/hot_and_cold.ico'),
                     to: path.resolve(__dirname, 'dist')
+                },
+                {
+                    from: path.resolve(__dirname, 'src/images/music.mp3'),
+                    to: path.resolve(__dirname, 'dist')
                 }
             ]
         }),
@@ -50,7 +54,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader']  //npm install -D style-loader css-loader
             },
             {
-                test: /\.(png|jpg|svg|gif|ttf|woff|woff2|eot)$/,
+                test: /\.(png|jpg|svg|gif|ttf|woff|woff2|eot|mp3)$/,
                 loader: 'file-loader',  //npm install -D file-loader
                 options: {
                     outputPath: 'fonts and images'

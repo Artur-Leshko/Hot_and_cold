@@ -37,11 +37,21 @@ restart.addEventListener('click', function(event) {
 });
 
 volumeOn.addEventListener('click', function(event) {
+    document.querySelector('audio').remove();
+
     volumeOn.style.display = 'none';
     volumeOff.style.display = 'inline-block';
 });
 
 volumeOff.addEventListener('click', function(event) {
+    let audio = document.createElement('audio');
+
+    audio.setAttribute('src', 'music.mp3');
+    audio.setAttribute('autoplay', 'autoplay');
+    audio.setAttribute('loop', 'loop');
+
+    document.body.appendChild(audio);
+
     volumeOff.style.display = 'none';
     volumeOn.style.display = 'inline-block';
 });
