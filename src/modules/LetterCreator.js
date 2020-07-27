@@ -11,7 +11,7 @@ export default class LetterCreator {
         let letterWidth = 20;
         let letterHeight = 20;
 
-        let coords = { newWidth: Math.random() * (clientWidth - letterWidth - 10), newHeight: Math.random() * (clientHeight - letterHeight - 20)};
+        let coords = { newWidth: Math.random() * (clientWidth - letterWidth - 20), newHeight: Math.random() * (clientHeight - letterHeight - 20)};
 
         return coords;
     }
@@ -32,6 +32,15 @@ export default class LetterCreator {
     addLetter() {
         let newLetter = this._createLetter();
 
+        if(this.truthfulness === true) {
+            newLetter.addEventListener('click', function(event) {
+                console.log('true');
+            });
+        } else {
+            newLetter.addEventListener('click', function(event) {
+                console.log('false');
+            });
+        }
 
         document.body.appendChild(newLetter);
     }
