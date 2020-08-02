@@ -4,7 +4,9 @@ import { letters_and_words } from './words-and-letters';
 let startButton = document.querySelector('.start_button');
 let exitButton = document.querySelector('.exit_button');
 
+
 startButton.addEventListener('click', function(event) {
+    let letters = [];
     let randomLetters = letters_and_words.randomLetters();
     let parsedWord = letters_and_words.parseOnLetters(Math.floor(Math.random() * letters_and_words.arrayOfWords.length));
 
@@ -14,15 +16,19 @@ startButton.addEventListener('click', function(event) {
         letter.remove();
     }
 
-    for(let i = 0; i < 20; i++) {
+    for(let i = 0; i < 30; i++) {
         let letter = new LetterCreator(randomLetters[i], false);
-        letter.addLetter();
+        letter.addLetter(letters);
+        letters.push(letter);
     }
 
     for(let element of parsedWord) {
         let letter = new LetterCreator(element, true);
-        letter.addLetter();
+        letter.addLetter(letters);
+        letters.push(letter);
     }
+
+    console.log(letters);
 });
 
 exitButton.addEventListener('click', function(event) {

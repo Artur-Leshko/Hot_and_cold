@@ -4,7 +4,7 @@ export let letters_and_words = {
     randomLetters: function() {
         let randomLetters = [];
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             randomLetters[i] = String.fromCharCode(Math.floor(Math.random() * (1104 - 1072) + 1072));
         }
 
