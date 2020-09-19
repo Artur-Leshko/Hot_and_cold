@@ -1,7 +1,11 @@
+import RightLetterFieldCreator from './RightLetterFieldCreator';
+
 export default class LetterCreator {
     constructor(letter, truthfulness) {
         this.letter = letter;
-        this.trtruthfulness = truthfulness;
+        this.truthfulness = truthfulness;
+        this.letterId = Math.floor(Math.random() * 100000);
+        this.rightLetterField = this.truthfulness === true ? new RightLetterFieldCreator(this.letter, this.letterId) : null;
     }
 
     _newCoords(letters) {
@@ -33,7 +37,7 @@ export default class LetterCreator {
     }
 
     _intersects(coords1, coords2) {
-        return (Math.abs(coords1.x - coords2.x) < 37) && (Math.abs(coords1.y - coords2.y) < 37)
+        return (Math.abs(coords1.x - coords2.x) < 37) && (Math.abs(coords1.y - coords2.y) < 37);
     }
 
     _createLetter(letters) {
@@ -52,9 +56,11 @@ export default class LetterCreator {
     addLetter(letters) {
         let newLetter = this._createLetter(letters);
 
-        if(this.truthfulness == true) {
-            newLetter.addEventListener('click', function(event) {
-                console.log('true');
+        if(this.truthfulness === true) {
+            this.rightLetterField.createRightLetterField();
+            newLetter.addEventListener('click', () => {
+                document.querySelector(`.right-letter-${this.letterId}`).style.display = 'block';
+                newLetter.remove();
             });
         } else {
             newLetter.addEventListener('click', function(event) {

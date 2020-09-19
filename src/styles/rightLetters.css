@@ -1,0 +1,37 @@
+.right_letters_field {
+    display: none;
+
+    width: fit-content;
+    height: 37px;
+
+    position: absolute;
+    top: 3%;
+    right: 50%;
+    transform: translateX(50%);
+
+    background-color: transparent;
+}
+
+.right_letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    height: 37px;
+    width: 35px;
+
+    text-align: center;
+
+    border-bottom: 4px solid #ad2007;
+}
+
+.right_letter:last-child {
+    margin-right: 0;
+}
+
+.right_letter p {
+    display: none;
+    color: #ffa96b;
+    font-size: 2em;
+    text-transform: uppercase;
+}
