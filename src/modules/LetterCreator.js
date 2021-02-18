@@ -1,6 +1,14 @@
 import RightLetterFieldCreator from './RightLetterFieldCreator';
 
+let scaleCoords = {
+    scaleX: document.querySelector('.scale').getBoundingClientRect().x,
+    scaleY: document.querySelector('.scale').getBoundingClientRect().y,
+    scaleWidth: document.querySelector('.scale').getBoundingClientRect().width,
+    scaleHeight: document.querySelector('.scale').getBoundingClientRect().height,
+}
+
 export default class LetterCreator {
+
     constructor(letter, truthfulness) {
         this.letter = letter;
         this.truthfulness = truthfulness;
@@ -21,7 +29,7 @@ export default class LetterCreator {
 
             if(letters.length >= 1) {
                 for (let letter of letters) {
-                    if (this._intersects(letter.coords, this.coords)) {
+                    if (this._intersects(letter.coords, this.coords) || this._intersectsWithScale(this.coords)) {
                         intersects = true;
                         break;
                     }
@@ -38,6 +46,10 @@ export default class LetterCreator {
 
     _intersects(coords1, coords2) {
         return (Math.abs(coords1.x - coords2.x) < 37) && (Math.abs(coords1.y - coords2.y) < 37);
+    }
+
+    _intersectsWithScale(letterCoords) {
+        return (Math.abs(scaleCoords.scaleX - letterCoords.x) < scaleCoords.scaleWidth) && (Math.abs(scaleCoords.scaleY - letterCoords.y) < scaleCoords.scaleHeight)
     }
 
     _createLetter(letters) {
