@@ -7,6 +7,12 @@ let scaleCoords = {
     scaleHeight: document.querySelector('.scale').getBoundingClientRect().height,
 }
 
+let clientWidth = document.documentElement.clientWidth;
+let clientHeight = document.documentElement.clientHeight;
+
+let letterWidth = 37;
+let letterHeight = 37;
+
 export default class LetterCreator {
 
     constructor(letter, truthfulness) {
@@ -17,30 +23,23 @@ export default class LetterCreator {
     }
 
     _newCoords(letters) {
-        let clientWidth = document.documentElement.clientWidth;
-        let clientHeight = document.documentElement.clientHeight;
+        let intersects = true;
 
-        let letterWidth = 37;
-        let letterHeight = 37;
-
-        for (let i = 0; i < 100; i++) {
-            let intersects = false;
+        while(intersects){
+            intersects = false;
             this.coords = { x: Math.random() * (clientWidth - letterWidth - 10), y: Math.random() * (clientHeight - letterHeight - 20)};
 
-            if(letters.length >= 1) {
+            if(letters.length == 0 && (this.coords.y <= 50 || this._intersectsWithScale(this.coords))) {
+                intersects = true;
+            } else {
                 for (let letter of letters) {
-                    if (this._intersects(letter.coords, this.coords) || this._intersectsWithScale(this.coords)) {
+                    if (this.coords.y <= 50 || this._intersects(letter.coords, this.coords) || this._intersectsWithScale(this.coords)) {
                         intersects = true;
                         break;
                     }
                 }
-            } else {
-                intersects = true;
             }
 
-            if (!intersects) {
-                break;
-            }
         }
     }
 
