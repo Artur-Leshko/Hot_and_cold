@@ -15,8 +15,8 @@
 
 .triangle-right {
 	position: absolute;
-	top: 50%;
-	left: 0.4%;
+	top: 49.5%;
+	left: -7%;
 
 	transform: translate(0, -50%);
 

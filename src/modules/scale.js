@@ -1,5 +1,5 @@
-let body = document.body;
+let triangle = document.querySelector('.triangle-right');
 
-body.addEventListener('mousemove', function(event) {
-
-});
+export function scale(rightLetter, distance) {
+    console.log(`Mouse moved! Rigth Letters: ${rightLetter ? rightLetter.letter : undefined}`);
+}

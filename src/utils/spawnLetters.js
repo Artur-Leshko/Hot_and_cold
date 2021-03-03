@@ -39,5 +39,5 @@ export function spawnLetters() {
         rightLetters.push(letter);
     }
 
-    return letters;
+    return rightLetters;
 }

@@ -18,8 +18,9 @@ export default class LetterCreator {
     constructor(letter, truthfulness) {
         this.letter = letter;
         this.truthfulness = truthfulness;
-        this.letterId = Math.floor(Math.random() * 100000);
+        this.letterId = Math.floor(Math.random() * 1000000);
         this.rightLetterField = this.truthfulness === true ? new RightLetterFieldCreator(this.letter, this.letterId) : null;
+        this.coords;
     }
 
     _newCoords(letters) {
@@ -58,6 +59,7 @@ export default class LetterCreator {
 
         div.textContent = this.letter;
         div.className = `letter ${classes[Math.floor(Math.random() * 4)]}`;
+        div.id = this.letterId;
         div.style.top = `${this.coords.y}px`;
         div.style.left = `${this.coords.x}px`;
 
